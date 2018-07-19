@@ -19,58 +19,57 @@
                 <Profile :profile="profile" />
             </li>
             <li v-show="currentTab===1">
-                <Work :workHistory="workHistory"/>
+                <WorkHistory :workHistory="workHistory"/>
             </li>
             <li v-show="currentTab===2">
-                <el-form >
-                  <el-form-item label="姓名">
-                    <el-input v-model="profile.name"></el-input>
-                  </el-form-item>
-                  <el-form-item label="城市">
-                    <el-input v-model="profile.city"></el-input>
-                  </el-form-item>
-                  <el-form-item label="出生年月">
-                    <el-input v-model="profile.birth"></el-input>
-                  </el-form-item>
-                </el-form>
+                <StudyHistory :studyHistory="studyHistory" />
             </li>
             <li v-show="currentTab===3">
+                <h2>个人奖项</h2>
                 <el-form >
-                  <el-form-item label="姓名">
+                  <el-form-item label="奖项名称">
                     <el-input v-model="profile.name"></el-input>
                   </el-form-item>
-                  <el-form-item label="城市">
+                  <el-form-item label="获奖说明">
                     <el-input v-model="profile.city"></el-input>
                   </el-form-item>
-                  <el-form-item label="出生年月">
+                  <el-form-item label="获奖时间">
                     <el-input v-model="profile.birth"></el-input>
                   </el-form-item>
                 </el-form>
                 
             </li>
             <li v-show="currentTab===4">
+                <h2>项目经验</h2>
                 <el-form >
-                  <el-form-item label="姓名">
+                  <el-form-item label="项目名称">
                     <el-input v-model="profile.name"></el-input>
                   </el-form-item>
-                  <el-form-item label="城市">
+                  <el-form-item label="项目功能">
                     <el-input v-model="profile.city"></el-input>
                   </el-form-item>
-                  <el-form-item label="出生年月">
+                  <el-form-item label="所用技术">
+                    <el-input v-model="profile.birth"></el-input>
+                  </el-form-item>
+                  <el-form-item label="技术细节">
+                    <el-input v-model="profile.birth"></el-input>
+                  </el-form-item>
+                  <el-form-item label="预览地址">
                     <el-input v-model="profile.birth"></el-input>
                   </el-form-item>
                 </el-form>
                 
             </li>
             <li v-show="currentTab===5">
+                <h2>联系方式</h2>
                 <el-form >
-                  <el-form-item label="姓名">
+                  <el-form-item label="微信">
                     <el-input v-model="profile.name"></el-input>
                   </el-form-item>
-                  <el-form-item label="城市">
+                  <el-form-item label="电话">
                     <el-input v-model="profile.city"></el-input>
                   </el-form-item>
-                  <el-form-item label="出生年月">
+                  <el-form-item label="邮箱">
                     <el-input v-model="profile.birth"></el-input>
                   </el-form-item>
                 </el-form>
@@ -81,7 +80,8 @@
 </template>
 <script>
 import Profile from './Profile'
-import Work from './Work'
+import WorkHistory from './WorkHistory'
+import StudyHistory from './StudyHistory'
 export default {
     data(){
         return {
@@ -94,12 +94,16 @@ export default {
             },
             workHistory: [
                 {company: '',content: '',}
+            ],
+            studyHistory: [
+                {school: '',duration: '',degree: ''}
             ]
         }
     },
     components: {
         Profile,
-        Work,
+        WorkHistory,
+        StudyHistory,
     },
     created: function(){
     },
@@ -118,7 +122,6 @@ export default {
             width: 80px;
             height: 100%;
             ol li {
-                // border: 1px solid red;
                 padding: 16px 0;
                 text-align: center;
                 .iconfont{
@@ -137,6 +140,9 @@ export default {
             }
         }
         .panes{
+            h2 {
+                margin-bottom: 32px;
+            }
             .container {
                 position: relative;
                 .el-icon-circle-close {

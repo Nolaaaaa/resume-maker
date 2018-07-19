@@ -2,12 +2,12 @@
     <div>
         <h2>工作经历</h2>
         <el-form >
-            <div  class="container" v-for="(work, index) in workHistory" :key="work.id">  
+            <div  class="container" v-for="(item, index) in workHistory" :key="item.id">  
                 <el-form-item label="公司名称">
-                  <el-input v-model="work.company"></el-input>
+                  <el-input v-model="item.company"></el-input>
                 </el-form-item> 
                 <el-form-item label="工作内容">
-                  <el-input v-model="work.content"></el-input>
+                  <el-input v-model="item.content"></el-input>
                 </el-form-item>
                 <i class="el-icon-circle-close" @click="removeWorkHistory(index)"></i>
             </div>

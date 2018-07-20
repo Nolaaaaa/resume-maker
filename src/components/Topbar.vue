@@ -1,12 +1,23 @@
 <template>
-    <div id="topbar">
+    <div id="topbar" @preview="preview">
         <div class="logo">Resumer</div>
         <div class="actions">
+            <el-button  plain @click="preview">预览</el-button>
             <el-button  plain>登录</el-button>
             <el-button type="primary" plain>注册</el-button>
         </div>
     </div>
 </template>
+<script>
+export default {
+    methods: {
+        preview() {
+            this.$emit('preview')
+        }
+    }
+}
+</script>
+
 <style lang="scss"> 
     #topbar{
         min-height: 50px;

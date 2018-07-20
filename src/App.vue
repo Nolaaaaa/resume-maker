@@ -2,7 +2,7 @@
   <div id="app">
     <Topbar class="topbar"/>
     <main>
-      <Editor class="editor"/>
+      <Editor  :resume="resume" class="editor"/>
       <Preview class="preview"/>
     </main>
   </div>
@@ -15,6 +15,30 @@ import Editor from './components/Editor'
 
 export default {
   name: 'App',
+  data() {
+    return {
+      resume: {
+        profile: [
+            { name: '', city: '', birth: '' }
+        ],
+        workHistory: [
+            {company: '',content: '',}
+        ],
+        studyHistory: [
+            {school: '',degree: '',duration: ''}
+        ],
+        awards: [
+            {name: '',content: '',time: ''}
+        ],
+        projects: [
+            {name: '',function: '',skill:  '',detail: '',address: ''}
+        ],
+        contacts: [
+            {wechat: '',phone: '',email: ''}
+        ]
+      }
+    }
+  },
   components: {
     Topbar,
     Preview,

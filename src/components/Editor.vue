@@ -16,22 +16,22 @@
         </nav>
         <ol class="panes">
             <li v-show="currentTab===0">
-                <Profile :items="profile" :labels="{ name: '名字', city: '城市', birth: '生日' }" />
+                <Profile :items="resume.profile" :labels="{ name: '名字', city: '城市', birth: '生日' }" />
             </li>
             <li v-show="currentTab===1">
-                <WorkHistory :items="workHistory" :labels="{company: '公司',content: '工作内容',}"/>
+                <WorkHistory :items="resume.workHistory" :labels="{company: '公司',content: '工作内容',}"/>
             </li>
             <li v-show="currentTab===2">
-                <StudyHistory :items="studyHistory" :labels="{school: '学校', degree: '学历', duration: '时间',}"/>
+                <StudyHistory :items="resume.studyHistory" :labels="{school: '学校', degree: '学历', duration: '时间',}"/>
             </li>
             <li v-show="currentTab===3">
-                <Awards :items="awards" :labels="{name: '奖项名称',content: '奖项说明',time: '获奖时间'}" />
+                <Awards :items="resume.awards" :labels="{name: '奖项名称',content: '奖项说明',time: '获奖时间'}" />
             </li>
             <li v-show="currentTab===4">
-                <Projects :items="projects" :labels="{name: '项目名称',function: '项目功能',skill:  '所用技术',detail: '技术细节',address: '项目预览'}"/>
+                <Projects :items="resume.projects" :labels="{name: '项目名称',function: '项目功能',skill:  '所用技术',detail: '技术细节',address: '项目预览'}"/>
             </li>
             <li v-show="currentTab===5">
-                <Contacts :items="contacts" :labels="{wechat: '微信',phone: '电话',email: '邮箱'}"/>
+                <Contacts :items="resume.contacts" :labels="{wechat: '微信',phone: '电话',email: '邮箱'}"/>
             </li>
         </ol>
     </div>
@@ -46,29 +46,11 @@ import Contacts from './Contacts'
 
 
 export default {
+    props: ['resume'],
     data(){
         return {
             currentTab: 0,
             icons:['self','work','read','jiangbei','project','phone'],
-            profile: [
-                { name: '', city: '', birth: '' }
-            ],
-            workHistory: [
-                {company: '',content: '',}
-            ],
-            studyHistory: [
-                {school: '',degree: '',duration: ''}
-            ],
-            awards: [
-                {name: '',content: '',time: ''}
-            ],
-            projects: [
-                {name: '',function: '',skill:  '',detail: '',address: ''}
-            ],
-            contacts: [
-                {wechat: '',phone: '',email: ''}
-            ]
-
         }
     },
     components: {

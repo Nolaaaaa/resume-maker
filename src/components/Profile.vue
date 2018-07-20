@@ -2,21 +2,25 @@
     <div>
         <h2>个人信息</h2>
         <el-form >
-        <el-form-item label="姓名">
-            <el-input v-model="profile.name"></el-input>
-        </el-form-item>
-        <el-form-item label="城市">
-            <el-input v-model="profile.city"></el-input>
-        </el-form-item>
-        <el-form-item label="出生年月">
-            <el-input v-model="profile.birth"></el-input>
-        </el-form-item>
+            <div  class="container" v-for="item in items" :key="item.id">  
+                <el-form-item :label="labels[key]" v-for="key in keys" :key="key.id">
+                  <el-input v-model="item[key]"></el-input>
+                </el-form-item> 
+            </div>
         </el-form>
     </div>
 </template>
 <script>
 export default {
-    props: ['profile']
+    props: [
+        'items',
+        'labels' 
+    ],
+    computed: {
+        keys() {
+            return Object.keys(this.items[0])   //拿到数组中的第一项，然后字页面上遍历
+        }
+    },
 }
 </script>
 

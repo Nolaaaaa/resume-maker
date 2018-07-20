@@ -16,64 +16,22 @@
         </nav>
         <ol class="panes">
             <li v-show="currentTab===0">
-                <Profile :profile="profile" />
+                <Profile :items="profile" :labels="{ name: '名字', city: '城市', birth: '生日' }" />
             </li>
             <li v-show="currentTab===1">
-                <WorkHistory :workHistory="workHistory"/>
+                <WorkHistory :items="workHistory" :labels="{company: '公司',content: '工作内容',}"/>
             </li>
             <li v-show="currentTab===2">
-                <StudyHistory :studyHistory="studyHistory" />
+                <StudyHistory :items="studyHistory" :labels="{school: '学校', degree: '学历', duration: '时间',}"/>
             </li>
             <li v-show="currentTab===3">
-                <h2>个人奖项</h2>
-                <el-form >
-                  <el-form-item label="奖项名称">
-                    <el-input v-model="profile.name"></el-input>
-                  </el-form-item>
-                  <el-form-item label="获奖说明">
-                    <el-input v-model="profile.city"></el-input>
-                  </el-form-item>
-                  <el-form-item label="获奖时间">
-                    <el-input v-model="profile.birth"></el-input>
-                  </el-form-item>
-                </el-form>
-                
+                <Awards :items="awards" :labels="{name: '奖项名称',content: '奖项说明',time: '获奖时间'}" />
             </li>
             <li v-show="currentTab===4">
-                <h2>项目经验</h2>
-                <el-form >
-                  <el-form-item label="项目名称">
-                    <el-input v-model="profile.name"></el-input>
-                  </el-form-item>
-                  <el-form-item label="项目功能">
-                    <el-input v-model="profile.city"></el-input>
-                  </el-form-item>
-                  <el-form-item label="所用技术">
-                    <el-input v-model="profile.birth"></el-input>
-                  </el-form-item>
-                  <el-form-item label="技术细节">
-                    <el-input v-model="profile.birth"></el-input>
-                  </el-form-item>
-                  <el-form-item label="预览地址">
-                    <el-input v-model="profile.birth"></el-input>
-                  </el-form-item>
-                </el-form>
-                
+                <Projects :items="projects" :labels="{name: '项目名称',function: '项目功能',skill:  '所用技术',detail: '技术细节',address: '项目预览'}"/>
             </li>
             <li v-show="currentTab===5">
-                <h2>联系方式</h2>
-                <el-form >
-                  <el-form-item label="微信">
-                    <el-input v-model="profile.name"></el-input>
-                  </el-form-item>
-                  <el-form-item label="电话">
-                    <el-input v-model="profile.city"></el-input>
-                  </el-form-item>
-                  <el-form-item label="邮箱">
-                    <el-input v-model="profile.birth"></el-input>
-                  </el-form-item>
-                </el-form>
-                
+                <Contacts :items="contacts" :labels="{wechat: '微信',phone: '电话',email: '邮箱'}"/>
             </li>
         </ol>
     </div>
@@ -82,28 +40,44 @@
 import Profile from './Profile'
 import WorkHistory from './WorkHistory'
 import StudyHistory from './StudyHistory'
+import Projects from './Projects'
+import Awards from './Awards'
+import Contacts from './Contacts'
+
+
 export default {
     data(){
         return {
             currentTab: 0,
             icons:['self','work','read','jiangbei','project','phone'],
-            profile: {
-                name: '',
-                city: '',
-                birth: '',
-            },
+            profile: [
+                { name: '', city: '', birth: '' }
+            ],
             workHistory: [
                 {company: '',content: '',}
             ],
             studyHistory: [
-                {school: '',duration: '',degree: ''}
+                {school: '',degree: '',duration: ''}
+            ],
+            awards: [
+                {name: '',content: '',time: ''}
+            ],
+            projects: [
+                {name: '',function: '',skill:  '',detail: '',address: ''}
+            ],
+            contacts: [
+                {wechat: '',phone: '',email: ''}
             ]
+
         }
     },
     components: {
         Profile,
         WorkHistory,
         StudyHistory,
+        Awards,
+        Projects,
+        Contacts,
     },
     created: function(){
     },

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h2>学习经历</h2>
+        <h2>联系方式</h2>
         <el-form >
             <div  class="container" v-for="item in items" :key="item.id">  
                 <el-form-item :label="labels[key]" v-for="key in keys" :key="key.id">
@@ -21,8 +21,6 @@ export default {
             return Object.keys(this.items[0])   //拿到数组中的第一项，然后字页面上遍历
         }
     },
-    methods: {
-    }
 }
 </script>
 

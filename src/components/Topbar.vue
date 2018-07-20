@@ -9,7 +9,6 @@
 </template>
 <style lang="scss"> 
     #topbar{
-
         min-height: 50px;
         // border: 3px solid rgb(243, 171, 171);
         display: flex;  //内容并排显示

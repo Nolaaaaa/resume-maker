@@ -48,6 +48,9 @@ export default {
 <style lang="scss">
 // 页面布局 
 #app {
+  background-image: url(https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-714256.jpg);
+  background-size: cover;
+  background-color: rgba(221, 221, 221, 0.836);
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -63,14 +66,15 @@ export default {
       display: none;
     }
     main .preview {
-      max-width: 800px;
-      margin: 32px auto;
+      max-width: 8.00rem;
+      margin: .32rem auto;
     }
     .exitPreview {
       display: inline-block;  
     }
   }
   .topbar{
+    background: rgba(255, 255, 255, 0.726);
     z-index: 1;
     box-shadow: 0 0 3px hsla(0,0,0,0.5); //添加阴影
   }
@@ -81,23 +85,27 @@ export default {
     overflow: auto;
   }
   main{
+    padding: .24rem;
     display: flex;
+    align-items: center;
+    justify-content: center;
     flex: 1;
-    background: #DDD;
-    overflow: auto;  
+    overflow: hidden;  
     .editor{
       width:  40em;
-      margin: 16px 8px 16px 16px;
+      height: 100%;
+      margin: .16rem .16rem .16rem .12rem;
       box-shadow: 0 0 3px hsla(0,0,0,0.5);
-      background: white;
-      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.486);
+      border-radius: .04rem;
     }
     .preview{
-      flex: 1;
-      margin: 16px 16px 16px 8px;
+      width:  50em;
+      height: 100%;
+      margin: .16rem .16rem .16rem .12rem;
       box-shadow: 0 0 3px hsla(0,0,0,0.5);
-      background: white;
-      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.486);
+      border-radius:.04rem;
     }
   }
 }

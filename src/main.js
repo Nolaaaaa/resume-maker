@@ -3,8 +3,9 @@
 import Vue from 'vue'
 import App from './App'
 import Element from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css';
-import './assets/reset.scss'
+import 'element-ui/lib/theme-chalk/index.css'
+import '@/assets/reset.scss'
+import '@/assets/common.js'
 
 Vue.use(Element)
 

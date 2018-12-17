@@ -1,45 +1,21 @@
 <template>
   <div id="editor">
-    <nav>
-      <ol>
-        <li
-          v-for="(icon, index) in icons"
-          :class="{active: currentTab===index }"
-          @click="currentTab=index"
-          :key="icon.id"
-        >
-          <!-- <svg class="icon" aria-hidden="true">
-                        <use :xlink:href="`#icon-{{icon[i]}}`"></use>
-          </svg>-->
-          <i class="iconfont" :class="`icon-${icon}`"></i>
-        </li>
-      </ol>
-    </nav>
+    <nav><ol><li
+      v-for="(icon, index) in icons"
+      :class="{active: currentTab===index }"
+      @click="currentTab=index"
+      :key="icon.id"
+      >
+      <i class="iconfont" :class="`icon-${icon}`"></i>
+    </li></ol></nav>
     <ol class="panes">
-      <li v-show="currentTab===0">
-        <Profile :items="resume.profile" :labels="{ name: '名字', city: '城市', birth: '生日' }"/>
-      </li>
-      <li v-show="currentTab===1">
-        <StudyHistory
-          :items="resume.studyHistory"
-          :labels="{school: '学校', degree: '学历', duration: '时间',}"
-        />
-      </li>
-      <li v-show="currentTab===2">
-        <WorkHistory :items="resume.workHistory" :labels="{company: '公司',content: '工作内容',}"/>
-      </li>
-      <li v-show="currentTab===3">
-        <Projects
-          :items="resume.projects"
-          :labels="{name: '项目名称',function: '项目功能',skill:  '所用技术',detail: '技术细节',address: '项目预览'}"
-        />
-      </li>
-      <li v-show="currentTab===4">
-        <Awards :items="resume.awards" :labels="{name: '奖项名称',content: '奖项说明',time: '获奖时间'}"/>
-      </li>
-      <li v-show="currentTab===5">
-        <Contacts :items="resume.contacts" :labels="{wechat: '微信',phone: '电话',email: '邮箱'}"/>
-      </li>
+      <li v-show="currentTab===0"><Profile :items="resume[0]"/></li>
+      <li v-show="currentTab===1"><StudyHistory :items="resume[1]"/></li>
+      <li v-show="currentTab===2"><WorkHistory :items="resume[2]"/></li>
+      <li v-show="currentTab===3"><Awards :items="resume[3]"/></li>
+      <li v-show="currentTab===4"><Projects :items="resume[4]"/></li>
+      <li v-show="currentTab===5"><Contacts :items="resume[5]"/></li>
+      
     </ol>
   </div>
 </template>

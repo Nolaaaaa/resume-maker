@@ -13,20 +13,38 @@
 import Topbar from './components/Topbar'
 import Preview from './components/Preview'
 import Editor from './components/Editor'
-
+// profile,workHistory,studyHistory,awards,projects,contacts
 export default {
   name: 'App',
   data() {
     return {
       previewMode: false,
-      resume: {
-        profile: [ { name: '', city: '', birth: '' } ],
-        workHistory: [ {company: '',content: '',} ],
-        studyHistory: [ {school: '',degree: '',duration: ''} ],
-        awards: [ {name: '',content: '',time: ''} ],
-        projects: [ {name: '',function: '',skill:  '',detail: '',address: ''} ],
-        contacts: [ {wechat: '',phone: '',email: ''} ]
-      }
+      resume: [{
+          name: '个人信息',
+          label: { name: '名字', city: '城市', birth: '生日' },
+          text: [ { name: '', city: '', birth: '' } ]
+        },{ 
+          name: '工作经历', 
+          label: { company: '公司', content: '工作内容' },
+          text: [ {company: '', content: ''} ]
+        },{ 
+          name: '学习经历', 
+          label: { school: '学校', degree: '学历', duration: '时间' },
+          text: [ {school: '', degree: '', duration: ''} ]
+        },{  
+          name: '个人奖项', 
+          label: { name: '奖项名称', content: '奖项说明', time: '获奖时间' },
+          text: [ { name: '', content: '', time: ''} ]
+        },{  
+          name: '项目经验', 
+          label: { name: '项目名称', function: '项目功能', skill:  '所用技术', detail: '技术细节', address: '项目预览' },
+          text: [ {name: '', function: '', skill:  '', detail: '', address: ''} ]
+        },{  
+          name: '联系方式', 
+          label: { wechat: '微信', phone: '电话', email: '邮箱' },
+          text: [ {wechat: '', phone: '', email: ''} ]
+        }
+      ]
     }
   },
   methods: {

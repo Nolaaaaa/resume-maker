@@ -1,42 +1,31 @@
 <template>
   <div>
-    <h2>工作经历</h2>
+    <h2>{{items.name}}</h2>
     <el-form>
-      <div class="container" v-for="(item, index) in items" :key="item.id">
-        <el-form-item :label="labels[key]" v-for="key in keys" :key="key.id">
+      <div class="container" v-for="(item, index) in items.text" :key="item.id">
+        <el-form-item :label="items.label[key]" v-for="key in keys" :key="key.id">
           <el-input v-model="item[key]"></el-input>
         </el-form-item>
-        <i class="el-icon-circle-close" @click="removeWorkHistory(index)"></i>
+        <i class="el-icon-circle-close" @click="removeContent(index)"></i>
       </div>
       <el-form-item>
-        <el-button type="primary" @click="addWorkHistory">立即创建</el-button>
+        <el-button type="primary" @click="addContent">立即创建</el-button>
       </el-form-item>
     </el-form>
   </div>
 </template>
 <script>
+import { addContent,removeContent } from '@/assets/method.js'
 export default {
-  props: [
-    "items", //页面上绑定的items
-    "labels" //页面上绑定labels
-  ],
+  props: ["items"],
   computed: {
     keys() {
-      return Object.keys(this.items[0]); //拿到数组中的第一项，然后在页面上遍历
+      return Object.keys(this.items.text[0])
     }
   },
   methods: {
-    addWorkHistory() {
-      const newItem = {}; //console.log(this.keys) 打印出来是一个数组 ["company", "content"]
-      this.keys.map(key => {
-        //console.log(key) //打印出是company、content
-        newItem[key] = ""; //把空字符串赋值给 newItem[key]  console.log(newItem[key])  //打印出是空值
-      });
-      this.items.push(newItem); //console.log(newItem) 打印出 {company: "", content: ""}
-    },
-    removeWorkHistory(index) {
-      this.items.splice(index, 1); //从某个下标开始删除一个
-    }
+    removeContent,
+    addContent
   }
 };
 </script>

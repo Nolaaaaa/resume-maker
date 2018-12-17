@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h2>个人信息</h2>
+    <h2>{{items.name}}</h2>
     <el-form>
-      <div class="container" v-for="item in items" :key="item.id">
-        <el-form-item :label="labels[key]" v-for="key in keys" :key="key.id">
-          <el-input v-model="item[key]"></el-input>
+      <div class="container" v-for="item in items.text" :key="item.id">
+        <el-form-item :label="items.label[key]" v-for="key in keys" :key="key.id">
+          <el-input v-model="item[key]">{{item[key]}}</el-input>
         </el-form-item>
       </div>
     </el-form>
@@ -12,10 +12,10 @@
 </template>
 <script>
 export default {
-  props: ["items", "labels"],
+  props: ["items"],
   computed: {
     keys() {
-      return Object.keys(this.items[0]); //拿到数组中的第一项，然后字页面上遍历
+      return Object.keys(this.items.text[0])
     }
   }
 };

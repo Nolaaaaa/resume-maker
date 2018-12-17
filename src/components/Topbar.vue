@@ -3,8 +3,6 @@
     <div class="logo">Resumer</div>
     <div class="actions">
       <el-button type="primary" @click="preview" plain>预览</el-button>
-      <!-- <el-button plain>登录</el-button>
-      <el-button type="primary" plain>注册</el-button> -->
     </div>
   </div>
 </template>

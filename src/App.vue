@@ -5,7 +5,7 @@
       <Editor  :resume="resume" class="editor"/>
       <Preview  :resume="resume" class="preview"/>
     </main>
-    <el-button class="exitPreview" plain @click="exitPreview">退出预览</el-button>
+    <div class="exitPreview" @click="exitPreview">退出预览</div>
   </div>
 </template>
 
@@ -57,8 +57,25 @@ export default {
   height: 100vh;
   display: flex;  
   flex-direction: column;
-  .exitPreview {
+  .exitPreview {  
+    color: rgb(37, 126, 214);
+    background: #ecf5ff8f ;
+    border-color: #b3d8ff;
+    padding: .18rem .22rem .12rem; 
+    font-weight: bold;
+    border-radius: .04rem;
+    writing-mode: vertical-lr;
+    letter-spacing: 1px;
+    position: fixed;
+    bottom: 50%;
+    right: 0;
     display: none;  
+    &:hover {
+      color: #fff;
+      background-color: rgba(64, 160, 255, 0.616);
+      border-color: #409EFF;
+      cursor: pointer;
+    }
   }
   &.previewMode {
     .topbar{ display: none; }

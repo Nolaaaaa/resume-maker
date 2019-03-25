@@ -1,9 +1,9 @@
 <template>
   <div id="app" :class="{previewMode: previewMode}">
-    <Topbar v-on:preview="preview" class="topbar"/>
+    <Topbar @preview="preview" class="topbar"/>
     <main>
-      <Editor  :resume="resume" class="editor"/>
-      <Preview  :resume="resume" class="preview"/>
+      <Editor :resume="resume" class="editor"/>
+      <Preview :resume="resume" class="preview"/>
     </main>
     <div class="exitPreview" @click="exitPreview">退出预览</div>
   </div>
